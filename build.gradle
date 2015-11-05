@@ -35,18 +35,18 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'com.sparkjava:spark-core:2.3'
 	compile 'junit:junit:4.12'
-//	compile 'org.seleniumhq.selenium:selenium-java:2.48.2'
+	compile 'org.seleniumhq.selenium:selenium-java:2.48.2'
 
-//	compile 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7089'
-//	compile 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7376'
-//	seleniumCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0'
+	compile 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7089'
+	compile 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7376'
+	seleniumCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.25.0'
 
 //	compile group: 'org.sikuli', name: 'sikuli-api', version: '1.0.+'
- //   compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.+'
 //    compile group: 'commons-io', name: 'commons-io', version: '1.3.+'
   //  compile group: 'junit', name: 'junit', version: '4.+'
-    //compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
-   // compile group: 'net.sf.opencsv', name: 'opencsv', version: '2.+'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'net.sf.opencsv', name: 'opencsv', version: '2.+'
 	//compile 'com.google.code.gson:gson:2.2.4'
 	compile 'com.sparkjava:spark-template-freemarker:2.3'
 	compile 'br.com.thiagomoreira.liferay.plugins.markdown-display-app:markdown-display-app:1.0.0'
@@ -60,11 +60,11 @@ dependencies {
     seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.48.2'
     seleniumXvfbCompile 'junit:junit:4.11'
     seleniumXvfbCompile 'org.seleniumhq.selenium:seleniumjava:2.48.2'
-// seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.33.0'
+seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.33.0'
 //    seleniumCompile 'junit:junit:4.11'
-//    seleniumCompile 'org.slf4j:slf4j-api:1.7.2'
- //   seleniumCompile 'org.slf4j:slf4j-log4j12:1.7.2'
- //   seleniumCompile 'org.slf4j:jcl-over-slf4j:1.7.2'    
+    seleniumCompile 'org.slf4j:slf4j-api:1.7.2'
+    seleniumCompile 'org.slf4j:slf4j-log4j12:1.7.2'
+    seleniumCompile 'org.slf4j:jcl-over-slf4j:1.7.2'    
 
 
 }
@@ -90,13 +90,7 @@ apply plugin: 'org.kordamp.markdown.convert'
 apply plugin: 'checkstyle'
 tasks.withType(Checkstyle) {ignoreFailures = true }
 
-task selenium(type: Test, dependsOn: installApp) {
-    testClassesDir = sourceSets.selenium.output.classesDir
-    classpath = sourceSets.selenium.runtimeClasspath
-    doFirst {
- 	'build/install/ticTacToe/bin/ticTacToe &'.execute()
-    }
-}
+
 
 task seleniumXvfb(type: Test, dependsOn: installDist) {
 
