@@ -7,7 +7,7 @@ public class BoardTest
 {
     @Test
     public void testSizeOfBoard()
-	{
+    {
         Board board = new Board();
         assertEquals(9, board.getField().length * board.getField()[0].length);
     }
@@ -28,26 +28,18 @@ public class BoardTest
         int[][] emptyField = {{32, 32, 32}, {32, 32, 32}, {32, 32, 32}};
         //insert a couple of random characters into random positions in the array                      
         for(int i = 0; i < 10; i++)
-        {
-	        nonEmptyField[(int)(Math.random()*board.getXDimension())][(int)(Math.random()*board.getXDimension())] = (int)(Math.random() * 256);
-        }
+	    {
+		nonEmptyField[(int)(Math.random()*board.getXDimension())][(int)(Math.random()*board.getXDimension())] = (int)(Math.random() * 256);
+	    }
         //set the board field as the non-zero field, then zero it out and assert that it's actually empty                                                                                                 
         board.setField(nonEmptyField);
         board.initializeField();
         boardField = board.getField();
         for(int i = 0; i < board.getYDimension(); i++)
-        {
-        assertArrayEquals(emptyField[i], boardField[i]);
-        }
+	    {
+		assertArrayEquals(emptyField[i], boardField[i]);
+	    }
     }
 
-    /**
-    @Test
-    public void setFieldTooBig(){
-	Board board = new Board();
-	board.getField[5][5] = 12;
-	assertEquals(5, board.setField(board.getField()).length);
-
-    }
-    **/
+   
 }
