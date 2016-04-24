@@ -12,6 +12,8 @@ public class BTFCTicTacToe
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+    
+    /**
     @Before
     public void setUp() throws Exception
     {
@@ -80,4 +82,5 @@ public class BTFCTicTacToe
 		acceptNextAlert = true;
 	    }
     }
+    */
 }
